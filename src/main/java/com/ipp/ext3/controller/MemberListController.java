@@ -21,7 +21,13 @@ public class MemberListController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<MemberDto> memberList = MemberRepository.getInstance().getMemberList();
 
-		req.setAttribute("memberList", memberList);
+		MemberDto[] memberListArr = new MemberDto[memberList.size()];
+
+		for (int i = 0, l = memberListArr.length; i < l; i++) {
+			memberListArr[i] = memberList.get(i);
+		}
+
+		req.setAttribute("memberList", memberListArr);
 
 		req.getRequestDispatcher("view/memberList.jsp").forward(req, resp);
 	}

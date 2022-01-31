@@ -23,7 +23,7 @@
 </head>
 <body>
 	<%
-		List<MemberDto> memberList = (List<MemberDto>) request.getAttribute("memberList");
+		MemberDto[] memberList = (MemberDto[]) request.getAttribute("memberList");
 	%>
 	<div class="container">
 		<div class="vertical-align">
